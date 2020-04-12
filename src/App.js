@@ -20,8 +20,8 @@ const App = () => {
                         name: item.CoinInfo.Name,
                         fullName: item.CoinInfo.FullName,
                         imageUrl: `https://www.cryptocompare.com/${item.CoinInfo.ImageUrl}`,
-                        price: parseInt(item.RAW.USD.PRICE),
-                        volume24Hour: parseInt(item.RAW.USD.VOLUME24HOUR),
+                        price:  item.RAW.USD.PRICE.toFixed(2),
+                        volume24Hour: parseInt(item.RAW.USD.VOLUME24HOUR ),
                     };
                     return obj;
                 });
@@ -50,8 +50,8 @@ const App = () => {
                                             <Table.Row>
                                                 <Table.Cell>{item.name} <img className="image" src={item.imageUrl}  alt="Icon" /></Table.Cell>
                                                 <Table.Cell>{item.fullName}</Table.Cell>
-                                                <Table.Cell>{item.price}</Table.Cell>
-                                                <Table.Cell>{item.volume24Hour}</Table.Cell>
+                                                <Table.Cell>${item.price}</Table.Cell>
+                                                <Table.Cell>${item.volume24Hour}</Table.Cell>
                                             </Table.Row>
                                             ))
                                     }
