@@ -11,33 +11,14 @@ const App = () => {
         {key: 'ax', value: 'ax', text: 'Aland Islands'},
     ];
 
-    const [data, setData] = useState([]);
-    useEffect(()=>{
-        axios
-            .get('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD')
-            .then( ({data}) =>{
-                const json = data.Data.map(item =>{
-                    const obj = {
-                        name: item.CoinInfo.Name,
-                        fullName: item.CoinInfo.FullName,
-                        imageUrl: `https://www.cryptocompare.com/${item.CoinInfo.ImageUrl}`,
-                        price:  item.RAW.USD.PRICE.toFixed(2),
-                        volume24Hour: parseInt(item.RAW.USD.VOLUME24HOUR ),
-                    };
-                    return obj;
-                });
-                setData(json);
-            })
-    },[]);
+
     return (
         <SelectComponent>
             <Container>
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={9}>
-                            <TableComponent
-                                data={data}
-                            />
+                            <TableComponent />
                         </Grid.Column>
                         <Grid.Column width={7}>
                             <Segment>

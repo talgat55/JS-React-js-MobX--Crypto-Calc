@@ -33,7 +33,6 @@ class CurrenciesStore {
                     return obj;
                 });
                 this.setItems(coins);
-                stores.converterStore.setSelectedCoin(coins[0]);
             });
     };
 
